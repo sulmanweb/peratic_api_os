@@ -1,0 +1,19 @@
+inherit_from: .rubocop_todo.yml
+require:
+  - rubocop-rails
+  - rubocop-rspec
+  - rubocop-factory_bot
+AllCops:
+  NewCops: enable
+  Exclude:
+    - 'bin/**/*'
+    - 'db/schema.rb'
+    - 'node_modules/**/*'
+    - 'vendor/**/*'
+    - 'config/initializers/active_storage_validations.rb'
+    - 'config/initializers/active_storage.rb'
+    - 'config/initializers/active_job.rb'
+    - 'config/initializers/active_record_belongs_to_required_by_default.rb'
+    - 'config/initializers/active_record.rb'
+    - 'config/initializers/active_model_serializers.rb'
+    - 'config/initializers/active_model.rb'
