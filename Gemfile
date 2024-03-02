@@ -12,5 +12,9 @@ gem 'rack-cors', '~> 2.0', '>= 2.0.1'
 
 group :development, :test do
   gem 'debug', '~> 1.9', '>= 1.9.1', platforms: %i[ mri windows ]
+  gem 'rspec-rails', '~> 6.1', '>= 6.1.1'
 end
+
+gem 'factory_bot_rails', '~> 6.4', '>= 6.4.3'
+gem 'faker', '~> 3.2', '>= 3.2.3'
 
