@@ -1,0 +1,94 @@
+name: "Ruby on Rails CI"
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+jobs:
+  rspec:
+    runs-on: ubuntu-latest
+    env:
+      api-dir: ./
+
+    services:
+      postgres:
+        image: postgres:16.2
+        ports: ["5432:5432"]
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.2.3
+          bundler-cache: true
+      - name: Install PostgreSQL
+        run: sudo apt-get -yqq install libpq-dev
+      - name: Setup Database
+        working-directory: ${{env.api-dir}}
+        env:
+          RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
+          RAILS_ENV: test
+          PGHOST: localhost
+          PGUSER: postgres
+          PGPASSWORD: postgres
+        run: bin/rails db:create db:schema:load
+      - name: Build and test with rspec
+        working-directory: ${{env.api-dir}}
+        env:
+          RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
+          RAILS_ENV: test
+          PGHOST: localhost
+          PGUSER: postgres
+        run: bundle exec rspec spec
+
+  rubocop:
+    runs-on: ubuntu-latest
+    env:
+      api-dir: ./
+
+    services:
+      postgres:
+        image: postgres:16.2
+        ports: ["5432:5432"]
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.2.3
+          bundler-cache: true
+      - name: Install PostgreSQL
+        run: sudo apt-get -yqq install libpq-dev
+      - name: Setup Database
+        working-directory: ${{env.api-dir}}
+        env:
+          RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
+          RAILS_ENV: test
+          PGHOST: localhost
+          PGUSER: postgres
+          PGPASSWORD: postgres
+        run: bin/rails db:create db:schema:load
+      - name: Check Rubocop Styles
+        working-directory: ${{env.api-dir}}
+        env:
+          RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
+          RAILS_ENV: test
+          PGHOST: localhost
+          PGUSER: postgres
+        run: bundle exec rubocop
