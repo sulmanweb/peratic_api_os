@@ -18,3 +18,10 @@ Started by [SulmanWeb](https://github.com/sulmanweb) on 2024-03-02.
   ```bash
   docker-compose down
   ```
+
+## Testing:
+
+- Run the following command to run RSpec tests:
+  ```bash
+  docker-compose run -e RAILS_ENV=test --rm api bundle exec rspec
+  ```
