@@ -11,6 +11,7 @@ gem 'rails', '~> 7.1.3', '>= 7.1.3.2'
 gem 'tzinfo-data', '~> 1.2024', '>= 1.2024.1', platforms: %i[windows jruby]
 
 group :development, :test do
+  gem 'annotate', '~> 3.2'
   gem 'debug', '~> 1.9', '>= 1.9.1', platforms: %i[mri windows]
   gem 'rspec-rails', '~> 6.1', '>= 6.1.1'
 end
