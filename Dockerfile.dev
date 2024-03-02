@@ -1,0 +1,31 @@
+# Dockerfile
+FROM ruby:3.2.3
+
+# Install dependencies
+RUN apt-get update -qq && apt-get install -y nodejs postgresql-client nano build-essential libpq-dev curl
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && apt-get install -y nodejs
+RUN npm install --global yarn
+
+# Set working directory
+RUN mkdir /app
+WORKDIR /app
+
+# Add Gemfile and Gemfile.lock
+COPY Gemfile /app/Gemfile
+COPY Gemfile.lock /app/Gemfile.lock
+
+# Install gems
+RUN bundle install
+
+# Add the application files
+COPY . /app
+
+ENV RAILS_ENV=development
+ENV EDITOR=nano
+ENV PGHOST=db
+
+# Expose the port
+EXPOSE 3000
+
+# Start the server
+CMD ["rails", "server", "-b", "0.0.0.0"]

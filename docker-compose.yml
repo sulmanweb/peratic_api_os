@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:16.2
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: peratic_api_os_development
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    command: bash -c "rm -f /app/tmp/pids/server.pid && rails server -b 0.0.0.0"
+    stdin_open: true
+    tty: true
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
