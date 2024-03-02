@@ -24,3 +24,5 @@ group :development do
   gem 'rubocop-rails', '~> 2.23', '>= 2.23.1'
   gem 'rubocop-rspec', '~> 2.27'
 end
+
+gem 'acts_as_paranoid', '~> 0.9.0'
