@@ -17,3 +17,5 @@ AllCops:
     - 'config/initializers/active_record.rb'
     - 'config/initializers/active_model_serializers.rb'
     - 'config/initializers/active_model.rb'
+Style/FrozenStringLiteralComment:
+    Enabled: false
