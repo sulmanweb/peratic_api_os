@@ -1,0 +1,6 @@
+en:
+  models:
+    user:
+      email_format: "format is invalid"
+      password_format: "must contain at least one lowercase letter, one uppercase letter, one digit, and one special character and 8-72 characters long."
+      username_format: "must contain only lowercase letters, numbers, and underscores, dash and dot and 3-20 characters long."

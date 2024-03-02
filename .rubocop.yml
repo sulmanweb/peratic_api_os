@@ -18,4 +18,6 @@ AllCops:
     - 'config/initializers/active_model_serializers.rb'
     - 'config/initializers/active_model.rb'
 Style/FrozenStringLiteralComment:
-    Enabled: false
+  Enabled: false
+RSpec/Rails/InferredSpecType:
+  Enabled: false
