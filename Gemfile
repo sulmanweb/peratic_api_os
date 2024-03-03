@@ -27,3 +27,5 @@ end
 
 gem 'acts_as_paranoid', '~> 0.9.0'
 gem 'config', '~> 5.3'
+gem 'sendgrid-ruby', '~> 6.7'
+gem 'solid_queue', '~> 0.2.1'
