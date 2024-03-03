@@ -10,9 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_02_160722) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_03_012210) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "emails", force: :cascade do |t|
+    t.string "from_email"
+    t.string "from_name"
+    t.string "to_emails", default: [], array: true
+    t.jsonb "substitutions", default: {}
+    t.string "template_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["substitutions"], name: "index_emails_on_substitutions", using: :gin
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", null: false

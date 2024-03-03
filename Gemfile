@@ -26,3 +26,4 @@ group :development do
 end
 
 gem 'acts_as_paranoid', '~> 0.9.0'
+gem 'config', '~> 5.3'

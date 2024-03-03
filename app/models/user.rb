@@ -41,6 +41,14 @@ class User < ApplicationRecord
                        format: { with: PASSWORD_FORMAT, message: I18n.t('models.user.password_format') },
                        if: :password_required?
 
+  generates_token_for :email_confirmation, expires_in: 8.hours do
+    email
+  end
+
+  generates_token_for :password_reset, expires_in: 1.hour do
+    password_salt&.last(10)
+  end
+
   def confirmed?
     email_confirmed_at.present?
   end
