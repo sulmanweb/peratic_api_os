@@ -1,4 +1,5 @@
 require 'sendgrid-ruby'
+require 'config'
 # Description: This is a job class which is used to send email to the user.
 class SendEmailJob < ApplicationJob
   include SendGrid
