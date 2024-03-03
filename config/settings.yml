@@ -1,0 +1,3 @@
+emails:
+  confirm_url: "http://localhost:3001/confirm_email"
+  reset_url: "http://localhost:3001/reset_password"
