@@ -21,6 +21,7 @@ gem 'faker', '~> 3.2', '>= 3.2.3'
 
 group :development do
   gem 'rubocop', '~> 1.61'
+  gem 'rubocop-graphql', '~> 1.5'
   gem 'rubocop-rails', '~> 2.23', '>= 2.23.1'
   gem 'rubocop-rspec', '~> 2.27'
 end
@@ -29,3 +30,8 @@ gem 'acts_as_paranoid', '~> 0.9.0'
 gem 'config', '~> 5.3'
 gem 'sendgrid-ruby', '~> 6.7'
 gem 'solid_queue', '~> 0.2.1'
+
+gem 'dartsass-sprockets', '~> 3.1'
+gem 'graphiql-rails', '~> 1.10'
+gem 'graphql', '~> 2.2', '>= 2.2.11'
+gem 'graphql-rails_logger', '~> 1.2', '>= 1.2.4'
