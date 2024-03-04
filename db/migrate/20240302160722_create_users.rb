@@ -1,6 +1,6 @@
 # This migrations add users table
 class CreateUsers < ActiveRecord::Migration[7.1]
-  def change # rubocop:disable Metrics/MethodLength
+  def change
     create_table :users do |t|
       t.string :email, null: false
       t.string :username, null: false
