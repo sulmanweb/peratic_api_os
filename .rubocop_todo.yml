@@ -48,6 +48,11 @@ GraphQL/ObjectDescription:
     - 'app/graphql/types/base_scalar.rb'
     - 'app/graphql/types/base_union.rb'
 
+# Offense count: 2
+GraphQL/ExtractInputType:
+  Exclude:
+    - 'app/graphql/mutations/sign_up.rb'
+
 # Offense count: 1
 # This cop supports safe autocorrection (--autocorrect).
 Layout/EmptyLineAfterGuardClause:
