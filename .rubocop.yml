@@ -24,3 +24,5 @@ RSpec/Rails/InferredSpecType:
   Enabled: false
 RSpec/MultipleExpectations:
   Enabled: false
+GraphQL/ExtractType:
+  Enabled: false
