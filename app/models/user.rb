@@ -52,6 +52,8 @@ class User < ApplicationRecord
     password_salt&.last(10)
   end
 
+  generates_token_for :auth_token, expires_in: 1.week
+
   def confirmed?
     email_confirmed_at.present?
   end
