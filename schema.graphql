@@ -27,9 +27,9 @@ type Mutation {
 
 type Query {
   """
-  An example field added by the generator
+  Fetches the current user
   """
-  testField: String!
+  me: User
 }
 
 """
