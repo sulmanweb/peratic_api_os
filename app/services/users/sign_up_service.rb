@@ -25,6 +25,7 @@ module Users
     end
 
     def post_sign_up_actions
+      log_event(user:, data: permitted_params.except(:password))
       email = Email.create_confirmation_email!(user:)
       SendEmailJob.perform_later(email.id)
     end

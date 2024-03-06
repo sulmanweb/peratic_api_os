@@ -10,9 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_03_055954) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_06_111900) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "audit_logs", force: :cascade do |t|
+    t.string "class_name"
+    t.jsonb "data", default: {}, null: false
+    t.bigint "user_id", null: false
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["class_name"], name: "index_audit_logs_on_class_name"
+    t.index ["data"], name: "index_audit_logs_on_data", using: :gin
+    t.index ["deleted_at"], name: "index_audit_logs_on_deleted_at"
+    t.index ["user_id"], name: "index_audit_logs_on_user_id"
+  end
 
   create_table "emails", force: :cascade do |t|
     t.string "from_email"
@@ -133,6 +146,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_03_055954) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "audit_logs", "users"
   add_foreign_key "solid_queue_blocked_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
   add_foreign_key "solid_queue_claimed_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
   add_foreign_key "solid_queue_failed_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
