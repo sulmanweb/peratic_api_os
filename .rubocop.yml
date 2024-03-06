@@ -22,3 +22,5 @@ Style/FrozenStringLiteralComment:
   Enabled: false
 RSpec/Rails/InferredSpecType:
   Enabled: false
+RSpec/MultipleExpectations:
+  Enabled: false

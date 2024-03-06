@@ -27,6 +27,9 @@ class User < ApplicationRecord
     /\A(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{8,72}\z/
   USERNAME_FORMAT = /\A[a-z0-9\-_\.]{3,20}\z/
 
+  # associations
+  has_many :audit_logs, dependent: :destroy
+
   # normalizations
   normalizes :email, with: ->(email) { email.strip.downcase }
   normalizes :username, with: ->(username) { username.strip.downcase }

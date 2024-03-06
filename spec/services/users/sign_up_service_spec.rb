@@ -18,6 +18,10 @@ RSpec.describe Users::SignUpService do
       it 'have enqueued a job' do
         expect { service }.to have_enqueued_job(SendEmailJob)
       end
+
+      it 'creates an audit log' do
+        expect { service }.to change(AuditLog, :count).by(1)
+      end
     end
 
     context 'when the user is invalid' do

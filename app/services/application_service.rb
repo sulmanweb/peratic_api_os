@@ -18,4 +18,9 @@ class ApplicationService
   def call
     raise NotImplementedError, 'Subclasses must implement a #call method'
   end
+
+  def log_event(user:, data: {})
+    event_data = { user:, data:, class_name: self.class.to_s }.compact
+    AuditLog.create(event_data)
+  end
 end
