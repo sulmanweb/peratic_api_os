@@ -5,3 +5,5 @@ en:
         auth_failure: "Invalid credentials."
       destroy:
         user_not_found: "User not found."
+      destroy_fully:
+        user_not_found: "User not found."
