@@ -1,6 +1,4 @@
 require 'clockwork'
-require 'config/boot'
-require 'config/environment'
 require 'active_support/time'
 include Clockwork # rubocop:disable Style/MixinUsage
 
