@@ -35,3 +35,5 @@ gem 'dartsass-sprockets', '~> 3.1'
 gem 'graphiql-rails', '~> 1.10'
 gem 'graphql', '~> 2.2', '>= 2.2.11'
 gem 'graphql-rails_logger', '~> 1.2', '>= 1.2.4'
+
+gem 'clockwork', '~> 3.0', '>= 3.0.2'
