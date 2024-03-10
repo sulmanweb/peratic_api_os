@@ -1,6 +1,6 @@
 # This file is used to schedule background jobs using the clockwork gem.
 module Clock
-  require 'clockwork'``
+  require 'clockwork'
   require 'active_support/time'
   include Clockwork
 
