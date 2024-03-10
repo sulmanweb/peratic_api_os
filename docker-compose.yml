@@ -26,3 +26,15 @@ services:
       - "3000:3000"
     depends_on:
       - db
+
+  cron:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    command: bash -c "bundle exec clockwork /app/lib/clock.rb"
+    stdin_open: true
+    tty: true
+    volumes:
+      - .:/app
+    depends_on:
+      - db
