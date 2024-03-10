@@ -3,3 +3,5 @@ en:
     users:
       sign_in:
         auth_failure: "Invalid credentials."
+      destroy:
+        user_not_found: "User not found."
