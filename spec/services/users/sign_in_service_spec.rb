@@ -29,5 +29,13 @@ RSpec.describe Users::SignInService do
         expect(service.success).to be_falsey
       end
     end
+
+    context 'when the user is soft deleted' do
+      before { user.destroy }
+
+      it 'returns an error result' do
+        expect(service.success).to be_falsey
+      end
+    end
   end
 end

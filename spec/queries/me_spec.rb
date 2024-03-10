@@ -40,4 +40,17 @@ RSpec.describe 'Me', type: :request do
       expect(errors.first['message']).to eq(I18n.t('gql.unauthenticated'))
     end
   end
+
+  context 'when user is soft deleted' do
+    before { user.destroy }
+
+    it 'returns an error' do
+      post('/graphql', params: { query: }, headers:)
+
+      json = JSON.parse(response.body)
+      errors = json['errors']
+
+      expect(errors.first['message']).to eq(I18n.t('gql.unauthenticated'))
+    end
+  end
 end
