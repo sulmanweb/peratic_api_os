@@ -7,3 +7,7 @@ en:
         user_not_found: "User not found."
       destroy_fully:
         user_not_found: "User not found."
+      send_confirmation:
+        user_not_found: "User not found."
+        user_already_confirmed: "User already confirmed."
+        confirmation_email_sent: "Confirmation email sent."
