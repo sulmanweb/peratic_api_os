@@ -13,3 +13,5 @@ en:
         confirmation_email_sent: "Confirmation email sent."
       confirm:
         token_failed: "May be the token is expired or invalid."
+      send_reset_password:
+        success: "Reset password instructions sent."
