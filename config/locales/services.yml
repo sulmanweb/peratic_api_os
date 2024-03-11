@@ -11,3 +11,5 @@ en:
         user_not_found: "User not found."
         user_already_confirmed: "User already confirmed."
         confirmation_email_sent: "Confirmation email sent."
+      confirm:
+        token_failed: "May be the token is expired or invalid."
