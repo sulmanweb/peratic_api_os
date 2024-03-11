@@ -26,3 +26,5 @@ RSpec/MultipleExpectations:
   Enabled: false
 GraphQL/ExtractType:
   Enabled: false
+GraphQL/ExtractInputType:
+  Enabled: false
