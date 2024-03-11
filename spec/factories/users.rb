@@ -22,7 +22,7 @@ FactoryBot.define do
   factory :user do
     email { Faker::Internet.unique.email }
     name { Faker::Name.name }
-    username { Faker::Internet.unique.username(separators: %w[. _ -]) }
+    username { Faker::Internet.unique.username(separators: %w[. _ -], specifier: 3..20) }
     password { 'Abcd@1234' }
 
     trait :confirmed do
