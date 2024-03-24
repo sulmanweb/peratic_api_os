@@ -81,6 +81,8 @@ test:
 #
 production:
   <<: *default
-  database: peratic_api_os_production
-  username: peratic_api_os
-  password: <%= ENV["PERATIC_API_OS_DATABASE_PASSWORD"] %>
+  host: <%= ENV['POSTGRES_HOST'] %>
+  port: 5432
+  database: pt-api-stg
+  username: <%= ENV['POSTGRES_USER'] %>
+  password: <%= ENV['POSTGRES_PASSWORD'] %>
