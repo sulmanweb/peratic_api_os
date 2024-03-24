@@ -9,5 +9,6 @@ module Types
     field :send_reset_password, mutation: Mutations::SendResetPassword, description: 'Send reset password email'
     field :sign_in, mutation: Mutations::SignIn, description: 'Sign in a user'
     field :sign_up, mutation: Mutations::SignUp, description: 'Sign up a new user'
+    field :update_password, mutation: Mutations::UpdatePassword, description: 'Update user password by password_challenge'
   end
 end

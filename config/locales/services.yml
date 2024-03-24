@@ -15,3 +15,6 @@ en:
         token_failed: "May be the token is expired or invalid."
       send_reset_password:
         success: "Reset password instructions sent."
+      update_password:
+        user_not_found: "User not found."
+        invalid_password: "Invalid password."
