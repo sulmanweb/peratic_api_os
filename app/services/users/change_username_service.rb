@@ -1,4 +1,5 @@
 module Users
+  # Service object to handle user username change given password_challenge
   class ChangeUsernameService < ApplicationService
     def call
       return result.new(success: false, errors: [I18n.t('services.users.change_username.user_not_found')]) if user.nil?
