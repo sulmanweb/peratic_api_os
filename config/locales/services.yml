@@ -18,3 +18,6 @@ en:
       update_password:
         user_not_found: "User not found."
         invalid_password: "Invalid password."
+      change_email:
+        user_not_found: "User not found."
+        no_new_email: "No new email provided."
