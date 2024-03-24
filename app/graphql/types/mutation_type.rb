@@ -2,6 +2,7 @@
 
 module Types
   class MutationType < Types::BaseObject
+    field :change_email, mutation: Mutations::ChangeEmail, description: 'Change user email by password_challenge'
     field :confirm_email, mutation: Mutations::ConfirmEmail, description: 'Confirm the email of a user'
     field :reset_password, mutation: Mutations::ResetPassword, description: 'Reset user password by token'
     field :self_destroy, mutation: Mutations::SelfDestroy, description: 'Destroy the user'

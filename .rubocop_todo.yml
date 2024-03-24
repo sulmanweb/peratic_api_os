@@ -229,3 +229,7 @@ Style/SymbolArray:
 # URISchemes: http, https
 Layout/LineLength:
   Max: 125
+
+Metrics/AbcSize:
+  Exclude:
+    - 'app/services/users/change_email_service.rb'
