@@ -21,3 +21,5 @@ en:
       change_email:
         user_not_found: "User not found."
         no_new_email: "No new email provided."
+      change_username:
+        user_not_found: "User not found."
