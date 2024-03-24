@@ -1,0 +1,34 @@
+ssh:
+  proxy: "95.217.182.66"
+servers:
+  web:
+    hosts:
+      - 10.0.0.2
+    labels:
+      # traefik.http.routers.hms-api.rule: Host(`api-stg.peratic.com`)
+      traefik.http.routers.hms-api_secure.entrypoints: websecure
+      traefik.http.routers.hms-api_secure.tls: true
+      traefik.http.routers.hms-api_secure.rule: Host(`api-stg.peratic.com`)
+  clockwork:
+    hosts:
+      - 10.0.0.2
+    cmd: bash -c "bundle exec clockwork /app/lib/clock.rb"
+env:
+  clear:
+    POSTGRES_HOST: 10.0.0.3
+    POSTGRES_USER: postgres
+  secret:
+    - RAILS_MASTER_KEY
+    - POSTGRES_PASSWORD
+accessories:
+  db:
+    image: postgres:16.2
+    host: 10.0.0.3
+    port: "5432:5432"
+    env:
+      clear:
+        POSTGRES_USER: postgres
+      secret:
+        - POSTGRES_PASSWORD
+    volumes:
+      - "postgres_data:/var/lib/postgresql/data"
